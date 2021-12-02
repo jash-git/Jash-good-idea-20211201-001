@@ -1,0 +1,180 @@
+LINUX LNMP(nginx php mysql phpmyadmin)
+
+資料來源: https://cloud.tencent.com/developer/article/1563114
+https://www.cnblogs.com/fjlinww/p/12512796.html
+https://melayogu.pixnet.net/blog/post/345474926-%5blemp%5d-nginx%2bmysql%2bphp%e5%ae%89%e8%a3%9d
+https://www.youtube.com/watch?v=EMZP5ec_ZR4
+
+sudo apt-get update
+sudo apt-get install nginx php7.0-fpm php7.0-cli php7.0-curl php7.0-gd php7.0-mcrypt php7.0-cgi
+sudo service nginx start
+sudo service php7.0-fpm restart
+
+
+sudo vim /etc/nginx/sites-available/default
+server {
+  listen 80 default_server;
+ listen [::]:80 default_server;
+
+  # SSL configuration
+ #
+ # listen 443 ssl default_server;
+  # listen [::]:443 ssl default_server;
+
+ root /var/www/html;
+
+ # Add index.php to the list if you are using PHP
+  index index.html index.htm index.nginx-debian.html;
+
+ server_name _;
+
+  location / {
+      # 这里改动了 定义首页索引文件的名称
+   index  index.html index.htm index.php default.html default.htm default.php;
+ }
+
+    # PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI协议默认配置.
+    # Fastcgi服务器和程序(PHP,Python)沟通的协议.
+ location ~ \.php$ {
+    # 设置监听套接字 (or other unix sockets):
+    fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+   # 设置脚本文件请求的路径
+   fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+   # 引入fastcgi的配置文件 
+   include fastcgi_params;
+ }
+}
+
+
+sudo apt-get install mysql-server phpmyadmin
+
+
+sudo ln -s /usr/share/phpmyadmin /var/www/html
+
+
+sudo mysql -u root -p
+随便输入密码就可以进入：
+>> select Host,User,plugin from mysql.user where User='root';
+  +-----------+------+-------------+  | Host      | User | plugin      |  
+  +-----------+------+-------------+  | localhost | root | unix_socket |  
+  +-----------+------+-------------+  1 row in set (0.00 sec)
+这个时候会发现plugin(加密方式)是unix_socket：
+>> update mysql.user set plugin='mysql_native_password';  #重置加密方式   
+>> update mysql.user set password=PASSWORD("newpassword") where User='root';  #设置新密码   
+>> flush privileges;  #刷新权限信息
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+$ sudo apt-get install mariadb-server mariadb-client
+
+
+$ sudo apt-get install nginx
+
+
+$ sudo nano /etc/nginx/sites-available/default
+server {
+  listen 80 default_server;
+ listen [::]:80 default_server;
+
+  # SSL configuration
+ #
+ # listen 443 ssl default_server;
+  # listen [::]:443 ssl default_server;
+
+ root /var/www/html;
+
+ # Add index.php to the list if you are using PHP
+  index index.html index.htm index.nginx-debian.html;
+
+ server_name _;
+
+  location / {
+      # 这里改动了 定义首页索引文件的名称
+   index  index.html index.htm index.php default.html default.htm default.php;
+ }
+
+    # PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI协议默认配置.
+    # Fastcgi服务器和程序(PHP,Python)沟通的协议.
+ location ~ \.php$ {
+    # 设置监听套接字 (or other unix sockets):
+    fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+   # 设置脚本文件请求的路径
+   fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+   # 引入fastcgi的配置文件 
+   include fastcgi_params;
+ }
+}
+
+
+$ sudo systemctl restart nginx
+
+
+$ sudo apt-get install php-fpm
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+$ sudo apt-get update
+$ sudo apt-get install nginx
+
+
+$ sudo apt-get install mysql-server
+
+
+$ sudo apt-get install php-fpm php-mysql
+
+
+$ sudo nano /etc/php/7.0/fpm/php.ini
+	cgi.fix_pathinfo=1   /*將 1 改成 0*/
+
+
+$ sudo systemctl restart php7.0-fpm    /* 重新啟動 */
+
+
+$ sudo nano /etc/nginx/sites-available/default
+server {
+  listen 80 default_server;
+ listen [::]:80 default_server;
+
+  # SSL configuration
+ #
+ # listen 443 ssl default_server;
+  # listen [::]:443 ssl default_server;
+
+ root /var/www/html;
+
+ # Add index.php to the list if you are using PHP
+  index index.html index.htm index.nginx-debian.html;
+
+ server_name _;
+
+  location / {
+      # 这里改动了 定义首页索引文件的名称
+   index  index.html index.htm index.php default.html default.htm default.php;
+ }
+
+    # PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI协议默认配置.
+    # Fastcgi服务器和程序(PHP,Python)沟通的协议.
+ location ~ \.php$ {
+    # 设置监听套接字 (or other unix sockets):
+    fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+   # 设置脚本文件请求的路径
+   fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+   # 引入fastcgi的配置文件 
+   include fastcgi_params;
+ }
+}
+
+
+$ sudo systemctl restart nginx
+
+
+<?php
+
+phpinfo();
+
+?>
+
