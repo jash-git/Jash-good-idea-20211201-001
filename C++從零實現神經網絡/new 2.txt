@@ -1,0 +1,3 @@
+C++從零實現神經網絡
+https://mp.weixin.qq.com/s/tqdp7HG8N9HSGc24jkHLqg
+https://github.com/LiuXiaolong19920720/simple_net

@@ -1,0 +1,14 @@
+SQL優化不會？推薦4 款工具
+
+資料來源:https://mp.weixin.qq.com/s/RR2wchTpp87bTk0CeCAYng
+
+1、mysqltuner.pl
+	https://github.com/major/MySQLTuner-perl
+	
+2、tuning-primer.sh
+	https://github.com/BMDan/tuning-primer.sh
+	
+3、pt-variable-advisor
+	https://www.percona.com/downloads/percona-toolkit/LATEST/
+	
+4、pt-qurey-digest
