@@ -1,0 +1,53 @@
+想用好OpenCV霍夫圓檢測，必知的一個重要參數[DP參數]
+
+資料來源: https://mp.weixin.qq.com/s/c1uamrL0NfgUWHaNkLSTCw
+
+Python 測試碼
+
+Mat gray;
+double dp = 1.2; // 在其它参数保持不变的情况下。dp的取值越高，越容易检测到圆，
+int min_radius = 100;
+int max_radius = 120;
+int minDist = 20;
+int low_grad = 50;
+int hight_grad = 100;
+Mat src = imread("D:/images/vm_test/ball.jpg");
+imshow("input", src);
+cvtColor(src, gray, COLOR_BGR2GRAY);
+// GaussianBlur(gray, gray, Size(9, 9), 2, 2);
+vector<Vec3f> circles;
+HoughCircles(gray, circles, HOUGH_GRADIENT, dp, minDist, hight_grad, low_grad, min_radius, max_radius);
+for (size_t i = 0; i < circles.size(); i++)
+{
+    Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+    int radius = cvRound(circles[i][2]);
+    // 绘制圆
+    circle(src, center, 3, Scalar(0, 255, 0), -1, 8, 0);
+    circle(src, center, radius, Scalar(0, 0, 255), 3, 8, 0);
+}
+namedWindow("circles", 1);
+imshow("circles", src);
+waitKey(0);Mat gray;
+double dp = 1.2; // 在其它参数保持不变的情况下。dp的取值越高，越容易检测到圆，
+int min_radius = 100;
+int max_radius = 120;
+int minDist = 20;
+int low_grad = 50;
+int hight_grad = 100;
+Mat src = imread("D:/images/vm_test/ball.jpg");
+imshow("input", src);
+cvtColor(src, gray, COLOR_BGR2GRAY);
+// GaussianBlur(gray, gray, Size(9, 9), 2, 2);
+vector<Vec3f> circles;
+HoughCircles(gray, circles, HOUGH_GRADIENT, dp, minDist, hight_grad, low_grad, min_radius, max_radius);
+for (size_t i = 0; i < circles.size(); i++)
+{
+    Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+    int radius = cvRound(circles[i][2]);
+    // 绘制圆
+    circle(src, center, 3, Scalar(0, 255, 0), -1, 8, 0);
+    circle(src, center, radius, Scalar(0, 0, 255), 3, 8, 0);
+}
+namedWindow("circles", 1);
+imshow("circles", src);
+waitKey(0);
