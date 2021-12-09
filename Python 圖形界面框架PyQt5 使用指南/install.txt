@@ -1,0 +1,12 @@
+安装PyQt5
+pip install pyqt5
+
+pip install pyqt5-tools
+
+其中pyqt5-tools为Qt Designer拖拽式的界面设计工具。安装过程中可能会报如下错误：
+
+qt5-tools 5.15.2.1.2 has requirement click~=7.0, but you'll have click 8.0.1 which is incompatible.
+
+解决方案：
+
+pip install click~=7.0
