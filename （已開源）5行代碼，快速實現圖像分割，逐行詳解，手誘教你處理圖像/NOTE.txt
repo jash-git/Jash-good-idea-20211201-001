@@ -1,0 +1,61 @@
+（已開源）5行代碼，快速實現圖像分割，逐行詳解，手誘教你處理圖像 [PixelLib]
+
+資料來源:https://mp.weixin.qq.com/s/WCrwVMnwtyZ96oUeBti4Ew
+
+文字摘要:
+    安裝最新版本的 TensorFlow、Pillow、OpenCV-Python、scikit-image 和 PixelLib：
+        pip3 install tensorflow
+        pip3 install pillow
+        pip3 install opencv-python
+        pip3 install scikit-image
+        pip3 install pixellib
+
+    PixelLib 實現需求分區
+        import pixellib
+        from pixellib.semantic import semantic_segmentation
+        segment_image = semantic_segmentation()
+        segment_image.load_pascalvoc_model(“deeplabv3_xception_tf_dim_ordering_tf_kernels.h5”)
+        segment_image.segmentAsPascalvoc(“path_to_image”, output_image_name = “path_to_output_image”)
+    
+    實戰！(圖片文件命名為：sample1.jpg)
+        import pixellib
+        from pixellib.semantic import semantic_segmentation
+        segment_image = semantic_segmentation()
+        segment_image.load_pascalvoc_model(“deeplabv3_xception_tf_dim_ordering_tf_kernels.h5”)
+        segment_image.segmentAsPascalvoc(“sample1.jpg”, output_image_name = “image_new.jpg”)    
+
+    可以通過修改下面的代碼，來檢查執行分割的推理時間
+        import pixellib
+        from pixellib.semantic import semantic_segmentation
+        import time
+        segment_image = semantic_segmentation()
+        segment_image.load_pascalvoc_model(“pascal.h5”)
+        start = time.time()
+        segment_image.segmentAsPascalvoc(“sample1.jpg”, output_image_name= “image_new.jpg”)
+        end = time.time()
+        print(f”Inference Time: {end-start:.2f}seconds”)
+        
+    PixelLib在執行實例分割時，基於的框架是Mask RCNN，代碼如下：
+        import pixellib
+        from pixellib.instance import instance_segmentation
+        segment_image = instance_segmentation()
+        segment_image.load_model(“mask_rcnn_coco.h5”)
+        segment_image.segmentImage(“path_to_image”, output_image_name = “output_image_path”)
+        
+    上圖，實戰第二彈！
+        import pixellib
+        from pixellib.instance import instance_segmentation
+        segment_image = instance_segmentation()
+        segment_image.load_model(“mask_rcnn_coco.h5”)
+        segment_image.segmentImage(“sample2.jpg”, output_image_name = “image_new.jpg”)    
+        
+    也可以通過同樣的代碼查詢實例片段的推理時間：
+        import pixellib
+        from pixellib.instance import instance_segmentation
+        import time
+        segment_image = instance_segmentation()
+        segment_image.load_model(“mask_rcnn_coco.h5”)
+        start = time.time()
+        segment_image.segmentImage(“former.jpg”, output_image_name= “image_new.jpg”)
+        end = time.time()
+        print(f”Inference Time: {end-start:.2f}seconds”)        

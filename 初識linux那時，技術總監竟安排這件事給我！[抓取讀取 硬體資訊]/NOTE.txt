@@ -1,0 +1,49 @@
+初識linux那時，技術總監竟安排這件事給我！[抓取/讀取 硬體資訊]
+
+資料來源: https://mp.weixin.qq.com/s/bA6P-REp2VCKkgc7qUEjIg
+
+文字摘要:
+01、查看當前操作系統詳細信息命令
+    uname -a
+
+
+02、查看當前操作系統版本命令
+    cat /etc/redhat-release
+    
+03、查看操作系統內核版本號命令
+    uname -r
+    
+04、查看CPU的所有信息命令
+    cat /proc/cpuinfo    
+    
+05、查看CPU詳細信息命令
+    lscpu
+
+06、查看CPU物理個數命令
+    grep 'physical id' /proc/cpuinfo |sort -u |wc -l
+    
+07、查看CPU核心數命令
+    grep 'core id' /proc/cpuinfo |sort -u |wc -l
+
+08、查看邏輯CPU數量命令
+    grep 'processor' /proc/cpuinfo | sort -u | wc -l
+
+09、單獨查看CPU型號命令
+    cat /proc/cpuinfo | grep name | sort | uniq    
+
+10、查看硬盤分區命令
+    fdisk -l
+
+11、查看磁盤已掛載命令
+    df -h
+
+12、查看內存的配置命令
+    free -m    
+    
+13、Mem：即內存的使用情況列表，包含總內存、已用內存、空閒內存。
+
+14、shared:即共享內存。
+
+15、buff/cache :即用於存放要輸出到塊設備的數據。
+
+16、Swap：即虛擬內存，可以把數據存放在硬盤上，當物理內存不足時，拿出部分硬盤空間當虛擬內存使用，解決內存使用不足問題。    

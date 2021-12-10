@@ -1,0 +1,10 @@
+以後配置Nginx 用這款神器！
+
+資料來源:https://mp.weixin.qq.com/s/7Sb8L5a4mfjuZogp5AMVPg
+
+文字重點
+選擇你的場景
+填寫好參數，系統就會自動生成配置文件。
+
+開源地址：github.com/digitalocean/nginxconfig.io
+網站：digitalocean.com/community/tools/nginx
