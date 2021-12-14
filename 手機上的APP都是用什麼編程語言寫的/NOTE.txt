@@ -1,0 +1,8 @@
+手機上的APP都是用什麼編程語言寫的 [Java和Kotlin / Swift和Object-C / Flutter和Uni-app]
+資料來源:https://mp.weixin.qq.com/s/EplDkV0VpDdnVPErVDv4Og
+第一類：針對單一APP開發的語言，即開發一套代碼只能運行在一個平台上
+	1、開發Android的：Java和Kotlin
+	2、開發IOS的：Swift和Object-C
+第二類：可以針對多個APP端的編程語言，即只需開發出一套代碼，就可在多個平台上運行。
+	1、第一種是Flutter技術
+	2、第二種是Uni-app框架
