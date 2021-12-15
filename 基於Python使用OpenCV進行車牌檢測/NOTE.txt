@@ -1,0 +1,205 @@
+基於Python使用OpenCV進行車牌檢測
+資料來源:https://mp.weixin.qq.com/s/oP-jHfmwnPZKT0BjYyj0pQ
+
+車牌識別及步驟(SOP)
+	1.車牌檢測：第一步是從車上檢測車牌。我們將使用OpenCV中的輪廓選項來檢測矩形對像以查找車牌。如果我們知道車牌的確切尺寸、顏色和大致位置，可以提高準確度。通常，檢測算法是根據特定國家使用的攝像機位置和車牌類型進行訓練的。如果圖像中甚至沒有汽車，這將變得更加棘手，在這種情況下，我們將執行額外的步驟來檢測汽車，然後是車牌。
+
+	2.字符分割：一旦我們檢測到車牌，我們必須將其裁剪出來並保存為新圖像。同樣，使用OpenCV也可以輕鬆地完成此操作。
+
+	3.字符識別：現在，我們在上一步中獲得的新圖像肯定會有一些字符（數字/字母）寫在上面。因此，我們可以對其執行OCR（光學字符識別）來檢測數字。
+
+
+軟體環境：
+	OpenCV： OpenCV是一個主要針對實時計算機視覺的編程函數庫，本項目使用的是4.1.0版。
+
+	Python：使用3.6.7版。
+
+	IDE：我將在這裡使用Jupyter。
+
+	Haar cascade：這是一種機器學習對象檢測算法，用於識別圖像或視頻中的對象。
+
+	Keras：易於使用並得到廣泛支持，Keras使深度學習盡可能簡單。
+
+	Scikit學習：它是一個用於Python編程語言的自由軟件機器學習庫。
+
+
+----
+
+步驟1 安裝依賴庫
+# installing OpenCV
+>pip install opencv-python==4.1.0
+# Installing Keras
+>pip install keras
+# Installing Jupyter
+>pip install jupyter
+#Installing Scikit-Learn
+>pip install scikit-learn
+
+
+步驟2 環境配置
+我們將從運行jupyter筆記本開始，然後在我們的案例OpenCV、Keras和sklearn中導入必要的庫。
+
+#importing openCV
+>import cv2#importing numpy
+>import numpy as np#importing pandas to read the CSV file containing our data
+>import pandas as pd#importing keras and sub-libraries
+>from keras.models import Sequential
+>from keras.layers import Dense
+>from keras.layers import Dropout
+>from keras.layers import Flatten, MaxPool2D
+>from keras.layers.convolutional import Conv2D
+>from keras.layers.convolutional import MaxPooling2D
+>from keras import backend as K
+>from keras.utils import np_utils
+>from sklearn.model_selection import train_test_split
+
+
+步驟３ 車牌檢測
+讓我們從導入帶牌照汽車的示例圖像開始，並定義一些函數：
+def extract_plate(img): # the function detects and perfors blurring on the number plate.
+  plate_img = img.copy()
+  
+  #Loads the data required for detecting the license plates from cascade classifier.
+  plate_cascade = cv2.CascadeClassifier('./indian_license_plate.xml')
+
+  # detects numberplates and returns the coordinates and dimensions of detected license plate's contours.
+  plate_rect = plate_cascade.detectMultiScale(plate_img, scaleFactor = 1.3, minNeighbors = 7)
+
+  for (x,y,w,h) in plate_rect:
+    a,b = (int(0.02*img.shape[0]), int(0.025*img.shape[1])) #parameter tuning
+    plate = plate_img[y+a:y+h-a, x+b:x+w-b, :]
+    # finally representing the detected contours by drawing rectangles around the edges.
+    cv2.rectangle(plate_img, (x,y), (x+w, y+h), (51,51,255), 3)
+        
+  return plate_img, plate # returning the processed image
+  
+  
+步驟4 車牌圖像預處理
+
+
+現在，讓我們進一步處理此圖像，以簡化角色提取過程。我們將首先為此定義更多函數。
+
+# Find characters in the resulting images
+def segment_characters(image) :
+
+    # Preprocess cropped license plate image
+    img = cv2.resize(image, (333, 75))
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    _, img_binary = cv2.threshold(img_gray, 200, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    img_erode = cv2.erode(img_binary, (3,3))
+    img_dilate = cv2.dilate(img_erode, (3,3))
+
+    LP_WIDTH = img_dilate.shape[0]
+    LP_HEIGHT = img_dilate.shape[1]
+
+    # Make borders white
+    img_dilate[0:3,:] = 255
+    img_dilate[:,0:3] = 255
+    img_dilate[72:75,:] = 255
+    img_dilate[:,330:333] = 255
+
+    # Estimations of character contours sizes of cropped license plates
+    dimensions = [LP_WIDTH/6, LP_WIDTH/2, LP_HEIGHT/10, 2*LP_HEIGHT/3]
+
+    # Get contours within cropped license plate
+    char_list = find_contours(dimensions, img_dilate)
+
+    return char_list
+
+
+步驟5 從車牌中分割字母數字字符
+import numpy as np
+import cv2
+
+# Match contours to license plate or character template
+def find_contours(dimensions, img) :
+
+    # Find all contours in the image
+    cntrs, _ = cv2.findContours(img.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Retrieve potential dimensions
+    lower_width = dimensions[0]
+    upper_width = dimensions[1]
+    lower_height = dimensions[2]
+    upper_height = dimensions[3]
+    
+
+    # Check largest 5 or  15 contours for license plate or character respectively
+    cntrs = sorted(cntrs, key=cv2.contourArea, reverse=True)[:15]
+
+    x_cntr_list = []
+    target_contours = []
+    img_res = []
+    for cntr in cntrs :
+        #detects contour in binary image and returns the coordinates of rectangle enclosing it
+        intX, intY, intWidth, intHeight = cv2.boundingRect(cntr)
+        
+        #checking the dimensions of the contour to filter out the characters by contour's size
+        if intWidth > lower_width and intWidth < upper_width and intHeight > lower_height and intHeight < upper_height :
+            x_cntr_list.append(intX) #stores the x coordinate of the character's contour, to used later for indexing the contours
+
+            char_copy = np.zeros((44,24))
+            #extracting each character using the enclosing rectangle's coordinates.
+            char = img[intY:intY+intHeight, intX:intX+intWidth]
+            char = cv2.resize(char, (20, 40))
+
+            # Make result formatted for classification: invert colors
+            char = cv2.subtract(255, char)
+
+            # Resize the image to 24x44 with black border
+            char_copy[2:42, 2:22] = char
+            char_copy[0:2, :] = 0
+            char_copy[:, 0:2] = 0
+            char_copy[42:44, :] = 0
+            char_copy[:, 22:24] = 0
+
+            img_res.append(char_copy) #List that stores the character's binary image (unsorted)
+
+    #Return characters on ascending order with respect to the x-coordinate (most-left character first)
+    
+    #arbitrary function that stores sorted list of character indeces
+    indices = sorted(range(len(x_cntr_list)), key=lambda k: x_cntr_list[k])
+    img_res_copy = []
+    for idx in indices:
+        img_res_copy.append(img_res[idx])# stores character images according to their index
+    img_res = np.array(img_res_copy)
+
+    return img_res	
+	
+	
+步驟6 創建機器學習模型並訓練模型
+數據是乾淨和準備好的，現在是時候創建一個神經網絡，它將足夠智能，在訓練後識別字符。
+
+對於建模，我們將使用具有3層的捲積神經網絡。
+
+## create model
+>model = Sequential()
+>model.add(Conv2D(filters=32, kernel_size=(5,5), input_shape=(28, 28, 1), activation='relu'))
+>model.add(MaxPooling2D(pool_size=(2, 2)))
+>model.add(Dropout(rate=0.4))
+>model.add(Flatten())
+>model.add(Dense(units=128, activation='relu'))
+>model.add(Dense(units=36, activation='softmax'))	
+
+
+步驟7 訓練CNN模型
+我們將使用的數據包含大小為28x28的字母（AZ）和數字（0-9）的圖像，而且數據是平衡的，因此我們不必在這裡進行任何類型的數據調整。
+
+我們將使用“分類交叉熵”作為損失函數，“Adam”作為優化函數，“精度”作為誤差矩陣。
+
+import datetime
+class stop_training_callback(tf.keras.callbacks.Callback):
+  def on_epoch_end(self, epoch, logs={}):
+    if(logs.get('val_acc') > 0.992):
+      self.model.stop_training = True
+      
+log_dir="logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+
+batch_size = 1
+callbacks = [tensorboard_callback, stop_training_callback()]
+model.fit_generator(train_generator,
+      steps_per_epoch = train_generator.samples // batch_size,
+      validation_data = validation_generator, 
+      validation_steps = validation_generator.samples // batch_size,
+      epochs = 80, callbacks=callbacks)
