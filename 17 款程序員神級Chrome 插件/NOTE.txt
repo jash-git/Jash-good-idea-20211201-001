@@ -1,0 +1,45 @@
+17 款程序員神級Chrome 插件/外掛/擴充元件 英雄榜，別怪我沒告訴你 (2021/12/16)
+
+資料來源:https://mp.weixin.qq.com/s/h4I34FzRJAT00q2A6jHrqg
+chrome 線上應用程式商店(chrome 官方網站):https://chrome.google.com/webstore/category/extensions?hl=zh-TW
+
+文字重點摘要:
+    美化
+        Just Black 午夜黑官方主題
+            https://www.chajianxw.com/themes/18893.html
+        Dark Reader 暗黑主題
+            https://www.chajianxw.com/accessibility/16718.html
+        為什麼你們就是不能加個空格呢？
+            https://www.chajianxw.com/product-tool/13516.html
+
+    標籤管理
+        Momentum 【新標籤頁】
+            https://www.chajianxw.com/product-tool/21550.html
+        Tab Manager Plus 【標籤管理器】
+            https://www.chajianxw.com/product-tool/13304.html
+        OneTab 【標籤頁整理】
+            https://www.chajianxw.com/product-tool/25652.html
+
+    生產效率
+        Octotree 【GitHub 樹形菜單】
+            https://www.chajianxw.com/developer/11032.html
+        劃詞翻譯
+            https://www.chajianxw.com/product-tool/12476.html
+        JSON Formatter 【JSON 格式化】
+            https://www.chajianxw.com/developer/20618.html
+        EditThisCookie
+            https://www.chajianxw.com/developer/25452.html
+        Click&Clean 【一鍵清除瀏覽歷史記錄、緩存、Cookie】
+            https://www.chajianxw.com/product-tool/12316.html
+        Imagus 【鼠標懸停放大圖片】
+            https://www.chajianxw.com/photos/17223.html
+        GitHub 加速
+            https://www.chajianxw.com/product-tool/11060.html
+        Adblock Plus 廣告攔截器
+            https://www.chajianxw.com/product-tool/11479.html
+        crxMouse Chrome™ 手勢
+            https://www.chajianxw.com/product-tool/20448.html
+        新浪微博圖床
+            https://www.chajianxw.com/developer/12629.html
+        Google 學術搜索按鈕
+            https://www.chajianxw.com/search-tool/18661.html

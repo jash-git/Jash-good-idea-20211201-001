@@ -1,0 +1,2 @@
+Linux 環境變數配置的6 種方法 [讀取/設定環境變數]
+資料來源: https://mp.weixin.qq.com/s/-A74NUbDm5Qi4TjKSNLN-g

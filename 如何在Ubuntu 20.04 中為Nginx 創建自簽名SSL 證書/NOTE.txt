@@ -1,0 +1,3 @@
+如何在Ubuntu 20.04 中為Nginx 創建自簽名SSL 證書
+資料來源:https://mp.weixin.qq.com/s/kjF6a3ngoy_70l2yuaLDzA
+https://www.linuxmi.com/ubuntu-20-04-lets-encrypt-nginx.html

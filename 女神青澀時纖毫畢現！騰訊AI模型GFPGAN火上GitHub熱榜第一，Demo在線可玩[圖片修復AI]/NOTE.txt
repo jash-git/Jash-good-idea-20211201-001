@@ -1,0 +1,5 @@
+女神青澀時纖毫畢現！騰訊AI模型GFPGAN火上GitHub熱榜第一，Demo在線可玩[圖片修復/圖片模糊變清晰AI]
+資料來源:https://mp.weixin.qq.com/s/BSD6km3E6ILXycZJ32fcFA
+論文地址：https://arxiv.org/abs/2101.04061
+GitHub項目頁：https://github.com/TencentARC/GFPGAN
+Hugging Face試玩傳送門：https://huggingface.co/spaces/akhaliq/GFPGAN
