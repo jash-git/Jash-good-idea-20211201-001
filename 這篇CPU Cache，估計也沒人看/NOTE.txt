@@ -1,0 +1,2 @@
+這篇CPU Cache，估計也沒人看 [單晶片/EMBEDDED 程式提升運算效率重點觀念]
+資料來源:https://mp.weixin.qq.com/s/ejAUFghO1zVzuvGFIiXNGg

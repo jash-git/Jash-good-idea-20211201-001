@@ -1,0 +1,2 @@
+C/C++中while(1) 和for(;;)有什麼區別？[無窮迴圈]
+資料來源:https://mp.weixin.qq.com/s/-N1YisY4Q_L4z-I-CCpUrQ

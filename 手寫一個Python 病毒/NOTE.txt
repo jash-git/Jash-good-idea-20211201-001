@@ -1,0 +1,2 @@
+手寫一個Python 病毒
+資料來源:https://mp.weixin.qq.com/s/lZSFmEIhto9Rjy_aVPaL2Q
