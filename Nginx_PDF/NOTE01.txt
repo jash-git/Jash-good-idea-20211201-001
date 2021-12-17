@@ -1,0 +1,277 @@
+﻿Nginx_PDF ~ Nginx教程從入門到精通
+
+Nginx基礎; 8
+	(1)nginx安裝; 8
+		1、必要軟體準備; 8
+		2、安裝nginx; 8
+		3、啟動、關閉、重置nginx; 9
+	(2)nginx 編譯參數詳解; 9
+	(3)nginx安裝配置+清緩存模組安裝; 12
+		下載套裝軟體; 12
+		編譯安裝; 12
+		內核參數優化; 13
+		配置範例網站網站; 13
+		修改nginx設定檔：; 13
+		啟動nginx; 15
+		綁定hosts,測試; 15
+	(4)nginx連接PHP 5.5; 16
+		1. 安裝PHP 5.5.0; 16
+		2、安裝配置nginx; 16
+		3. 訪問測試; 17
+	(5)nginx配置虛擬主機; 17
+		準備網站; 17
+		配置nginx虛擬主機; 18
+		重啟並打開網站; 19
+		其他指令; 19
+	(6)nginx location配置; 19
+	(7)nginx root&alias檔路徑配置; 21
+	(8)nginx日誌配置; 23
+		1. access_log指令; 23
+		2. log_format指令; 23
+		3. open_log_file_cache指令; 24
+		4. log_not_found指令; 25
+		5. log_subrequest指令; 25
+		6. rewrite_log指令; 25
+		7. error_log指令; 25
+	(9)apache和nginx支援SSI配置; 25
+		一. 前言; 25
+		二. apache配置; 25
+		三. nginx配置; 26
+	(10)nginx日誌切割; 27
+		1. 定義日誌輪滾策略; 27
+		2. 設置計畫任務; 28
+	(11)Nginx重寫規則指南; 28
+		一. rewrite模組介紹; 28
+		二. rewrite模組指令; 28
+		三. 重寫規則組成部分; 29
+		四. 實例; 30
+		五. 創建新的重新規則; 31
+	(12)nginx 邏輯運算; 31
+	(13)隱藏Nginx版本號的安全性與方法; 32
+	(14)CDN調度器HAProxy、Nginx、Varnish; 33
+	(15)lnmp架構下php安全配置分享; 37
+		1. 使用open_basedir限制虛擬主機跨目錄訪問; 37
+		2. 禁用不安全PHP函數; 37
+		3. 關注軟體安全資訊; 37
+		4. php用戶唯讀; 37
+		5. 關閉php錯誤日誌; 38
+		6. php上傳分離; 38
+		7. 關閉php信息; 38
+		8. 禁止動態載入程式庫; 38
+		9. 禁用打開遠程url; 38
+	(16)nginx tcp代理; 39
+		1. 安裝; 39
+		2. 配置; 39
+		3. 保持連接配置; 39
+	(17)nginx正向代理; 40
+	(18)搭建nginx反向代理用做內網功能變數名稱轉發; 41
+		情景; 41
+		配置步驟; 41
+		遇到的問題; 44
+	(19)nginx+keepalived+proxy_cache 配置高可用nginx群集和快取記憶體; 45
+	(20)Nginx 戰鬥準備 —— 優化指南; 49
+		基本的 (優化過的)配置; 50
+		高層的配置; 50
+		Events模組; 50
+		HTTP 模組; 50
+		一個完整的配置; 53
+		後記; 53
+	(21)確保nginx安全的10個技巧; 54
+NGINX變數詳解; 56
+	nginx變數使用方法詳解(1); 56
+	nginx變數使用方法詳解(2); 58
+	nginx變數使用方法詳解(3); 61
+	nginx變數使用方法詳解(4); 64
+	nginx變數使用方法詳解(5); 65
+	nginx變數使用方法詳解(6); 68
+	nginx變數使用方法詳解(7); 71
+	nginx變數使用方法詳解(8); 73
+Nginx模組與案例; 76
+	01.如何安裝nginx協力廠商模組; 76
+	02.srcache_nginx redis 構建緩存系統應用一例; 76
+	03.nginx+lua+redis構建高併發應用; 79
+		一.安裝lua; 79
+		二.安裝nginx; 79
+		三.安裝lua-redis-parser; 79
+		四.安裝json; 80
+		五.安裝redis-lua; 80
+		六.配置; 80
+		七.測試; 81
+	04.ttserver+nginx構建高併發高可用性應用; 81
+	05.nginx生成縮略圖配置 – ttlsa教程系列之nginx; 85
+	06.使用nginx sticky實現基於cookie的負載均衡; 87
+	07.nginx上傳模組—nginx upload module; 90
+	08. nginx strip模組刪除不必要的空格; 93
+	09.nginx + ngx_lua安裝測試; 96
+		1. 下載安裝LuaJIT; 96
+		2. 下載準備nginx lua模組; 96
+		3. 安裝nginx; 96
+		4. nginx lua配置; 97
+		5. 啟動測試; 97
+	10.nginx統計回應的http狀態碼資訊(ngx-http-status-code-counter); 97
+		1. 介紹; 97
+		2. 安裝; 97
+		3. 配置NGINX; 98
+		4. 測試; 98
+	11.nginx流量頻寬等請求狀態統計( ngx_req_status); 99
+		介紹; 99
+		1．安裝; 99
+		2. 配置; 99
+		4. 指令; 99
+		5. 測試訪問; 100
+		6. 相容性; 100
+	12.nginx即時記錄請求狀態資訊( ngx_realtime_request_module); 100
+		關於; 100
+		1.  安裝; 100
+		2.  指令(directives); 101
+		3.  配置實例; 101
+		4. 測試; 101
+		5. 相容性; 102
+		6. 參考文章; 102
+	13.nginx獲取大檔MD5值(nginx模組ngx_file_md5); 102
+		1．下載模組file-md5; 102
+		2. 安裝模組file-md5; 102
+		3. 配置file-md5; 102
+		4. 最後; 103
+	14.nginx不記錄特定日誌(access_log_bypass_if); 104
+	15.nginx快速繪製圓形圖（ngx_http_circle_gif_module模組）; 105
+		安裝模組參數; 105
+		circle_gif配置; 105
+		circle_gif用法; 105
+		circle_gif效果圖; 106
+		參考地址; 106
+	16.nginx實現大小寫字母轉換（ngx_http_lower_upper_case模組）; 106
+		1. 安裝nginx模組; 106
+		2.upper/lower 指令; 106
+		3. nginx配置; 106
+		4. 測試; 107
+		5. 參考地址; 107
+	17.nginx防止高負載的解決方案(sysgurad模組); 107
+		1. 安裝nginx sysguard模組; 107
+		2. sysguard指令; 107
+		3. sysguard使用實例; 108
+		結束語; 109
+	18.nginx js、css多個請求合併為一個請求(concat模組); 109
+		1.安裝nginx concat; 109
+		2. 指令directives; 110
+		3. 配置nginx; 110
+		4. 測試nginx concat; 111
+		5. 結束語; 112
+		6. 參考文章; 112
+	19.CDN下nginx獲取用戶真實IP地址; 112
+	20.nginx即時生成縮略圖到硬碟上; 114
+	21.perl + fastcgi + nginx搭建; 115
+		1. 準備軟體環境：; 115
+		2. nginx虛擬主機配置; 116
+		3. 配置腳本; 116
+		4. FastCGI測試; 120
+		5. 訪問測試; 121
+		6. 簡單壓力測試：; 121
+		7. 文件下載; 121
+	22.nginx+memcached構建頁面緩存應用; 122
+	23.memc_nginx+srcache_nginx+memcached構建透明的動態頁面緩存; 126
+	24.nginx 同一個IP上配置多個HTTPS主機; 134
+	25.srcache_nginx redis 清除緩存; 136
+	26.nginx動態IP黑白名單構建web防火牆(ngx_white_black_list); 137
+	27.srcache_nginx+redis構建緩存系統; 140
+		1. nginx模組; 140
+		2. redis安裝配置; 140
+		3. nginx配置; 142
+		4. 測試; 144
+		5. 回應頭狀態; 144
+		6. 查看redis是否緩存以及過期時間; 145
+	28.nginx模組nginx-http-footer-filter研究使用; 145
+	29.nginx本地緩存模組ngx_slowfs_cache; 150
+	30.nginx+fancy實現漂亮的索引目錄; 152
+		安裝環境; 152
+		下載安裝fancy; 153
+		fancy索引配置; 153
+		fancy指令使用：; 154
+	31.nginx secure_link下載防盜鏈; 155
+		1. 安裝nginx; 155
+		2. 配置nginx：; 156
+		3.  php下載頁面; 156
+		4.  測試nginx防盜鏈; 156
+		5.  secure link 防盜鏈原理; 156
+		5.  secure link 指令; 157
+		6. 注意事項; 157
+		7.  最後; 157
+	32.nginx顯示隨機首頁模組(Random Index); 157
+		前言; 157
+		random index介紹; 157
+		隨機首頁配置; 158
+		\}random index指令; 158
+	33.nginx實現圖片防盜鏈(referer指令); 158
+		nginx referer指令簡介; 158
+		圖片防盜鏈配置; 158
+		nginx防盜鏈指令; 158
+		參數說明; 159
+		最後; 159
+	34.nginx空白圖片(empty_gif模組); 159
+		nginx配置; 159
+		測試empty_gif; 160
+		empty_gif指令; 160
+		最後; 160
+	35.nginx記錄分析網站回應慢的請求(ngx_http_log_request_speed); 161
+		1. 模組安裝; 161
+		2. 指令log_request_speed; 161
+		3. 使用實例; 161
+		4. nginx測試版本; 162
+		5. 結束語; 162
+	36.nginx map使用方法; 162
+		一. ngx_http_map_module模組指令說明; 162
+		二. 實例; 163
+	37.nginx限速白名單配置; 165
+	38.nginx修改upstream不重啟的方法(ngx_http_dyups_module模組); 166
+		1. 安裝ngx_http_dyups_module; 166
+		2. 指令(Directives); 166
+		3. restful介面; 166
+		4. nginx配置; 167
+		5. 使用方法演示; 168
+		6. 注意事項; 169
+		7. 結束語; 169
+	39.nginx實現簡體繁體字互轉以及中文轉拼音(ngx_set_cconv模組); 169
+	40.nginx針對爬蟲進行限速配置; 171
+	41.nginx替換網站回應內容（ngx_http_sub_module）; 172
+		1. 安裝nginx; 172
+		2. 指令（Directives）; 172
+		3. nginx替換字串實例; 173
+		4. 結束語; 174
+	42.nginx向回應內容中追加內容（ngx_http_addition_module模組）; 174
+		1. 安裝nginx; 174
+		2. 指令(Directives); 174
+		3. nginx配置addition; 174
+		4. 結束語; 175
+	43.nginx存取控制allow、deny（ngx_http_access_module）; 175
+		1、安裝模組; 175
+		2、指令; 176
+		3. allow、deny實例; 176
+		4. 結束語; 176
+	44.nginx+perl模組的使用; 176
+	45.nginx索引目錄配置; 178
+		nginx配置; 178
+		auto_index指令; 179
+	46.nginx+video-thumbextractor生成視頻縮略圖; 179
+		前言; 179
+		系統環境; 179
+		支援格式; 179
+		最小圖片; 179
+		軟體安裝; 179
+		nginx配置; 180
+		測試; 181
+		指令; 182
+		常見錯誤; 183
+	47.Nginx國人開發縮略圖模組(ngx_image_thumb); 183
+	48.nginx+set-misc-nginx-module模組說明; 185
+	49.nginx geo使用方法; 191
+		geo指令; 191
+		適用實例; 192
+	50.Nginx 與 Lua; 194
+	51.ngx_http_headers_module模組add_header和expires指令; 197
+		一. 前言; 197
+		二. add_header指令; 197
+		三. expires指令; 197
+常見問題; 199
+	memc_nginx+srcache_nginx+memcached遇到的問題; 199
+	nginx反向代理proxy_set_header自訂header頭無效; 199
+	nginx purge更新緩存404錯誤; 200

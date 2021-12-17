@@ -1,0 +1,418 @@
+Nginx_PDF ~ 00_實戰Nginx取代Apache的高性能Web伺服器
+
+
+第 1 章 Nginx 簡介基本介紹 
+1.1  常用的 Web 伺服器簡介  3 
+1.1.1  Apache 伺服器  3 
+1.1.2  Lighttpd 伺服器  3 
+1.1.3  Tomcat 伺服器  4 
+1.1.4  IBM WebSphere 伺服器  4 
+1.1.5  Microsoft IIS  4 
+1.2  Nginx 簡介  4 
+1.3  選擇 Nginx 的理由  5 
+1.3.1  它可以高併發連接  5 
+1.3.2  記憶體消耗少  7 
+1.3.3  設定檔非常簡單  8 
+1.3.4  成本低廉  8 
+1.3.5  支援 Rewrite 重寫規則  9 
+1.3.6  內置的健康檢查功能  9 
+1.3.7  節省頻寬  9 
+1.3.8  穩定性高  9 
+1.3.9  支持熱部署  9 
+1.4  Nginx 與 Apache、Lighttpd 的綜合對比  9 
+第 2 章  Nginx 伺服器的安裝與配置  11 
+2.1  安裝 Nginx 伺服器所需要的系統資源  11 
+2.2  Nginx 的下載  12 
+2.3  Nginx 的安裝  12 
+2.3.1  Nginx 在 Windows 環境下的安裝  13 
+2.3.2  Nginx 在 Linux 環境下的安裝  13 
+2.4  Nginx 的啟動、停止、平滑重啟  16 
+2.4.1  Nginx 的啟動  17 
+2.4.2  Nginx 的停止  17 
+2.5  Nginx 的平滑重啟  18 
+2.6  Nginx 的信號控制  18 
+2.7  Nginx 的平滑升級  19 第 3 章  Nginx 的基本配置與優化  21 
+3.1  Nginx 的完整配置示例  21 
+3.2  Nginx 的虛擬主機配置  23 
+3.2.1  什麼是虛擬主機  23 
+3.2.2  配置基於 IP 的虛擬主機  24 
+3.2.3  配置基於功能變數名稱的虛擬主機  27 
+3.3  Nginx 的日誌檔配置與切割  29 
+3.3.1  用 log_format 指令設置日誌格式  29 
+3.3.2  用 access_log 指令指定日誌檔存放路徑  30 
+3.3.3  Nginx 日誌檔的切割  32 
+3.4  Nginx 的壓縮輸出配置  33 
+3.5  Nginx 的自動列目錄配置  35 
+3.6  Nginx 的流覽器本地緩存設置  36 
+第 4 章  Nginx 與 PHP（FastCGI）的安裝、配置與優化  38 
+4.1  獲取相關開來源程式  39 
+4.2  安裝 PHP 5.2.10（FastCGI 模式）  42 
+4.3  安裝 Nginx 0.8.15  52 
+4.4  配置開機自動啟動 Nginx + PHP  55 
+4.5  優化 Linux 內核參數  55 
+4.6  在不停止 Nginx 服務的情況下平滑變更 Nginx 配置  56 
+4.7  編寫每天定時切割 Nginx 日誌的腳本  56 
+第 5 章  Nginx 與 JSP、ASP.NET、Perl 的安裝與配置  59 
+5.1  Nginx 與 JSP（Tomcat）在 Linux 上的安裝、配置  59 
+5.2.1  Tomcat 和 JDK 的安裝  60 
+5.1.2  Nginx 與 Tomcat 的配置  61 
+5.2  Nginx 與 ASP.NET（Mono+FastCGI）在 Linux 上的安裝、配
+置  63 
+5.2.1  Mono 的安裝  63 
+5.2.2  Nginx 與 ASP.NET（Mono+FastCGI）的配置  64 
+5.3  Nginx 與 Perl（FastCGI）在 Linux 上的安裝、配置  67 
+5.3.1  Perl（FastCGI）的安裝  67 
+5.3.2  Nginx 與 Perl（FastCGI）的配置  70 第 6 章  Nginx HTTP 負載均衡和反向代理的配置與優化  73 
+6.1  什麼是負載均衡和反向代理  73 
+6.1.1  負載均衡  73 
+6.1.2  反向代理  73 
+6.2  常見的 Web 負載均衡方法  74 
+6.2.1  使用者手動選擇方式  74 
+6.2.2  DNS 輪詢方式  75 
+6.2.3  四/七層負載均衡設備  77 
+6.2.4  多線多地區智慧 DNS 解析與混合負載均衡方式  81 
+6.3  Nginx 負載均衡與反向代理的配置實例  83 
+6.3.1  完整的 Nginx 反向代理示例如代碼 6-3 所示  83 
+6.3.2  Nginx 負載均衡與反向代理實現動、靜態網頁分離  86 
+6.4  Nginx 負載均衡的 HTTP Upstream 模組  88 
+6.4.1  ip_hash 指令  89 
+6.4.2  server 指令  89 
+6.4.3  upstream 指令  90 
+6.4.4  upstream 相關變數  90 
+6.5  Nginx 負載均衡伺服器的雙機高可用  91 
+第 7 章  Nginx 的 Rewrite 規則編寫實例  99 
+7.1  什麼是 Nginx 的 Rewrite 規則  99 
+7.2  Nginx Rewrite 規則相關指令  99 
+7.2.1  break 指令  100 
+7.2.2  if 指令  100 
+7.2.3  return 指令  101 
+7.2.4  rewrite 指令  104 
+7.2.5  set 指令  106 
+7.2.6  uninitialized_variable_warn 指令  106 
+7.2.7  Nginx Rewrite 可以用到的全域變數  106 
+7.3  PCRE 規則運算式語法  107 
+7.4  Nginx 的 Rewrite 規則編寫實例  109 
+7.5  Nginx 與 Apache 的 Rewrite 規則實例對比  112 
+7.5.1  簡單的 Nginx 與 Apache Rewrite 重寫規則  112 
+7.5.2  允許指定的功能變數名稱訪問本站，其他功能變數名稱一律跳轉到http://www.aaa.com  113 
+7.5.3  URL 重寫與反向代理同時進行  114 
+7.5.4  指定 URL 之外的 URL 進行 Rewrite 跳轉  114 
+7.5.5  功能變數名稱首碼作為重寫規則變數的示例  115 
+第 8 章  Nginx 模組開發  117 
+8.1  Nginx 模組概述  117 
+8.2  Nginx 模組編寫實踐  119 
+8.2.1  Hello World 模組編寫與安裝  119 
+8.2.2  Hello World 模組分析  121 
+第 9 章  Nginx 的 Web 緩存服務與新浪網的開源 NCACHE 模
+塊  127 
+9.1  什麼是 Web 緩存？  127 
+9.2  Nginx 的 Web 緩存服務  128 
+9.2.1  proxy_cache 相關指令集  128 
+9.2.2  proxy_cache 完整示例  130 
+9.2.3  fastcgi_cache 相關指令集  131 
+9.3  新浪網開源軟體專案——基於 Nginx 的 NCache 網頁緩存系
+統  135 
+9.3.1  NCACHE 模組的安裝  136 
+9.3.2  NCACHE 設定檔編寫  136 
+9.3.3  NCACHE 的管理維護  138 
+9.3.4  NCACHE 後端內容原始伺服器設置  139 
+第 10 章  Nginx 在國內知名網站中的應用案例  141 
+10.1  Nginx 反向代理與負載均衡類網站應用案例  142 
+10.1.1  Nginx 負載均衡在新浪播客中的應用  142 
+10.1.2  Nginx 負載均衡在金山逍遙網中的應用  146 
+10.2  Nginx+PHP 類網站應用案例  152 
+10.2.1  Nginx+PHP 在金山逍遙網 CMS 發佈系統中的應用  152 
+10.2.2  Nginx+PHP 在某分類資訊網站中的應用  154 第 11 章  Nginx 的非典型應用實例  171 
+11.1  用 HTTPS（SSL）構建一個安全的 Nginx Web 伺服器  171 
+11.1.1  自行頒發不受流覽器信任的 SSL 證書  171 
+11.1.2  向 CA 機構申請頒發受流覽器信任的 SSL 證書  174 
+11.2  採用 Nginx 搭建 FLV 視訊伺服器  176 
+11.2.1  採用 Nginx 的 Flv Stream 模組搭建 HTTP 下載方式的 FLV
+視訊伺服器  176 
+11.2.2  採用 Nginx 實現 FMS/Red5 流媒體視訊伺服器的負載均
+衡  177 
+11.3  Nginx+PHP+MySQL 在小記憶體 VPS 伺服器上的優化  179 
+11.3.1  增加 swap 交換檔  180 
+11.3.2  Nginx 的主設定檔（nginx.conf）優化  180 
+11.3.3  PHP（FastCGI）的配置優化  182 
+11.3.4  MySQL 5.1 配置優化  182 
+11.4  採用 Nginx 搭建正向代理伺服器  184 
+第 12 章  Nginx 的核心模組  185 
+12.1  主模組指令  185 
+12.1.1  daemon 指令  185 
+12.1.2  env 指令  186 
+12.1.3  debug_points 指令  186 
+12.1.4  error_log 指令  186 
+12.1.5  log_not_found 指令  187 
+12.1.6  include 指令  188 
+12.1.7  lock_file 指令  188 
+12.1.8  master_process 指令  188 
+12.1.9  pid 指令  189 
+12.1.10  ssl_engine 指令  189 
+12.1.11  timer_resolution 指令  189 
+12.1.12  try_files 指令  189 
+12.1.13  user 指令  191 
+12.1.14  worker_cpu_affinity 指令  191 
+12.1.15  worker_priority 指令  192 
+12.1.16  worker_processes 指令  192 12.1.17  worker_rlimit_core 指令  193 
+12.1.18  worker_rlimit_nofile 指令  193 
+12.1.18  worker_rlimit_sigpending 指令  193 
+12.1.19  working_directory 指令  193 
+12.2  主模組變數  193 
+12.3  事件模組指令  194 
+12.3.1  accept_mutex 指令  194 
+12.3.2  accept_mutex_delay 指令  194 
+12.3.3  debug_connection 指令  194 
+12.3.4  use 指令  195 
+12.3.5  worker_connections 指令  195 
+第 13 章  Nginx 的標準 HTTP 模組  197 
+13.1  HTTP 的核心模組  197 
+13.1.1  alias 指令  197 
+13.1.2  client_body_in_file_only 指令  198 
+13.1.3  client_body_in_single_buffer 指令  198 
+13.1.4  client_body_buffer_size 指令  198 
+13.1.5  client_body_temp_path 指令  198 
+13.1.6  client_body_timeout 指令  199 
+13.1.7  client_header_buffer_size 指令  199 
+13.1.8  client_header_timeout 指令  199 
+13.1.9  client_max_body_size 指令  199 
+13.1.10  default_type 指令  200 
+13.1.11  directio 指令  200 
+13.1.12  error_page 指令  201 
+13.1.13  if_modified_since 指令  201 
+13.1.14  index 指令  202 
+13.1.14  internal 指令  202 
+13.1.15  keepalive_timeout 指令  203 
+13.1.16  keepalive_requests 指令  203 
+13.1.17  large_client_header_buffers 指令  204 
+13.1.18  limit_except 指令  204 
+13.1.19  limit_rate 指令  204 13.1.20  limit_rate_after 指令  205 
+13.1.21  listen 指令  205 
+13.1.22  location 指令  206 
+13.1.24  log_not_found 指令  207 
+13.1.25  log_subrequest 指令  207 
+13.1.26  msie_padding 指令  208 
+13.1.27  msie_refresh 指令  208 
+13.1.28  open_file_cache 指令  208 
+13.1.29  open_file_cache_errors 指令  209 
+13.1.30  open_file_cache_min_uses 指令  209 
+13.1.31  open_file_cache_valid 指令  209 
+13.1.32  optimize_server_names 指令  209 
+13.1.33  port_in_redirect 指令  210 
+13.1.34  recursive_error_pages 指令  210 
+13.1.35  resolver 指令  210 
+13.1.36  resolver_timeout 指令  210 
+13.1.37  root 指令  211 
+13.1.38  satisfy_any 指令  211 
+13.1.39  send_timeout 指令  211 
+13.1.40  sendfile 指令  211 
+13.1.41  server 指令  212 
+13.1.42  server_name 指令  212 
+13.1.43  server_name_in_redirect 指令  214 
+13.1.44  server_names_hash_max_size 指令  214 
+13.1.45  server_names_hash_bucket_size 指令  214 
+13.1.46  server_tokens 指令  215 
+13.1.47  tcp_nodelay 指令  215 
+13.1.48  tcp_nopush 指令  215 
+13.1.49  try_files 指令  215 
+13.1.50  types 指令  216 
+13.1.51  HTTP 核心模組中可以使用的變數  216 
+13.2  HTTP Upstream 模組  219 
+13.3  Http Access 模組  219 
+13.3.1  allow 指令  219 13.3.2  deny 指令  219 
+13.4  HTTP Auth Basic 模組  220 
+13.4.1  auth_basic 指令  220 
+13.4.2  auth_basic_user_file  221 
+13.5  Http Autoindex 模組  221 
+13.5.1  autoindex 指令  221 
+13.5.2  autoindex_exact_size 指令  222 
+13.5.3  autoindex_localtime 指令  222 
+13.6  Http Browser 模組  222 
+13.6.1  ancient_browser 指令  223 
+13.6.2  ancient_browser_value 指令  223 
+13.6.3  modern_browser 指令  223 
+13.6.4  modern_browser_value 指令  225 
+13.7  Http Charset 模組  226 
+13.7.1  charset 指令  226 
+13.7.2  charset_map 指令  226 
+13.7.3  override_charset 指令  228 
+13.7.4  source_charset 指令  228 
+13.8  Http Empty Gif 模組  228 
+13.8.1  empty_gif 指令  228 
+13.9  Http Fcgi 模組  228 
+13.9.1  fastcgi_buffers 指令  229 
+13.9.2  fastcgi_buffer_size 指令  230 
+13.9.3  fastcgi_cache 指令  230 
+13.9.4  fastcgi_cache_key 指令  230 
+13.9.5  fastcgi_cache_methods 指令  230 
+13.9.6  fastcgi_index 指令  231 
+13.9.7  fastcgi_hide_header 指令  231 
+13.9.8  fastcgi_ignore_client_abort 指令  231 
+13.9.9  fastcgi_intercept_errors 指令  231 
+13.9.10  fastcgi_max_temp_file_size 指令  232 
+13.9.11  fastcgi_param 指令  232 
+13.9.12  fastcgi_pass 指令  233 
+13.9.13  fastcgi_pass_header 指令  234 13.9.14  fastcgi_read_timeout 指令  234 
+13.9.15  fastcgi_redirect_errors 指令  234 
+13.9.16  fastcgi_split_path_info 指令  234 
+13.10  Geo 模組  235 
+13.10.1  geo 指令  236 
+13.11  Gzip 模組  237 
+13.11.1  gzip 指令  238 
+13.11.2  gzip_buffers 指令  238 
+13.11.3  gzip_comp_level 指令  239 
+13.11.4  gzip_min_length 指令  239 
+13.11.5  gzip_http_version 指令  239 
+13.11.6  gzip_proxied 指令  240 
+13.11.7  gzip_types 指令  240 
+13.12  Http Headers 模組  241 
+13.12.1  add_header 指令  242 
+13.12.2  expires 指令  242 
+13.13  Http Index 模組  243 
+13.13.1  index 指令  243 
+13.14  Http Referer 模組  243 
+13.14.1  valid_referers 指令  244 
+13.15  Http Limit Zone 模組  244 
+13.15.1  limit_zone 指令  245 
+13.15.2  limit_conn 指令  245 
+13.16  Http Limit Req 模組  246 
+13.16.1  limit_req_zone 指令  246 
+13.16.2  limit_req 指令  247 
+13.17  Http Log 模組  248 
+13.17.1  access_log 指令  248 
+13.17.2  log_format 指令  249 
+13.17.3  log_format_combined 指令  249 
+13.17.4  open_log_file_cache 指令  250 
+13.18  Http Map 模組  250 
+13.18.1  map 指令  251 
+13.18.2  map_hash_max_size 指令  252 13.18.3  map_hash_bucket_size 指令  252 
+13.19  Http Memcached 模組  252 
+13.19.1  memcached_pass 指令  254 
+13.19.2  memcached_connect_timeout 指令  255 
+13.19.3  memcached_read_timeout 指令  255 
+13.19.4  memcached_send_timeout 指令  255 
+13.19.5  memcached_buffer_size 指令  256 
+13.19.6  memcached_next_upstream 指令  256 
+13.19.7  Http Memcached 模組中的變數  256 
+13.19.8  協力廠商的 Memcached 模組  256 
+13.20  Http Proxy 模組  257 
+13.20.1  proxy_buffer_size 指令  257 
+13.20.2  proxy_buffering 指令  257 
+13.20.3  proxy_buffers 指令  258 
+13.20.4  proxy_busy_buffers_size 指令  258 
+13.20.5  proxy_cache 相關指令集  259 
+13.20.6  proxy_connect_timeout 指令  259 
+13.20.7  proxy_headers_hash_bucket_size 指令  259 
+13.20.8  proxy_headers_hash_max_size 指令  259 
+13.20.9  proxy_hide_header 指令  260 
+13.20.10  proxy_ignore_client_abort 指令  260 
+13.20.11  proxy_ignore_headers 指令  260 
+13.20.12  proxy_intercept_errors 指令  261 
+13.20.13  proxy_max_temp_file_size 指令  261 
+13.20.14  proxy_method 指令  261 
+13.20.15  proxy_next_upstream 指令  262 
+13.20.16  proxy_pass 指令  263 
+13.20.17  proxy_pass_header 指令  264 
+13.20.18  proxy_pass_request_body 指令  265 
+13.20.19  proxy_pass_request_headers 指令  265 
+13.20.20  proxy_redirect 指令  265 
+13.20.21  proxy_read_timeout 指令  266 
+13.20.22  proxy_redirect_errors 指令  267 
+13.20.23  proxy_send_lowat 指令  267 13.20.24  proxy_send_timeout 指令  267 
+13.20.25  proxy_set_body 指令  268 
+13.20.26  proxy_set_header 指令  268 
+13.20.27  proxy_store 指令  269 
+13.20.28  proxy_store_access 指令  270 
+13.20.29  proxy_temp_file_write_size 指令  271 
+13.20.30  proxy_temp_path 指令  271 
+13.20.31  proxy_upstream_fail_timeout 指令  271 
+13.20.32  proxy_upstream_max_fails 指令  271 
+13.20.33  Http Proxy 模組的變數  272 
+13.21  Http Rewrite 模組  272 
+13.22  Http SSI 模組  272 
+13.22.1  ssi 指令  273 
+13.22.2  ssi_silent_errors 指令  273 
+13.22.3  ssi_types 指令  273 
+13.22.4  ssi_value_length 指令  274 
+13.22.5  SSI 命令  274 
+13.22.6  SSI 變數  276 
+13.27  Http Userid 模組  277 
+13.27.1  userid 指令  277 
+13.27.2  userid_domain 指令  277 
+13.27.3  userid_expires 指令  278 
+13.27.4  userid_name 指令  278 
+13.27.5  userid_p3p 指令  278 
+13.27.6  userid_path 指令  279 
+13.27.6  userid_service 指令  279 
+第 14 章  Nginx 的其他 HTTP 模組  280 
+14.1  Http Addition 模組  280 
+14.1.1  add_before_body  281 
+14.1.2  add_after_body  281 
+14.1.3  addition_types  281 
+14.2  Embedded Perl 模組  281 
+14.2.1  perl 指令  283 14.2.2  perl_modules 指令  283 
+14.2.3  perl_require 指令  283 
+14.2.4  perl_set 指令  283 
+14.2.5  從 SSI 調用 Perl 腳本  284 
+14.3  Flv Stream 模組  286 
+14.3  flv 指令  287 
+14.4  Http Gzip Static 模組  287 
+14.4.1  gzip_static 指令  287 
+14.4.2  gzip_http_version 指令  287 
+14.4.3  gzip_proxied 指令  288 
+14.5  Http Random Index 模組  288 
+14.5.1  random_index 指令  288 
+14.6  Http Geo IP 模組  288 
+14.6.1  geoip_country 指令  289 
+14.6.2  geoip_city 模組  289 
+14.7  Http RealIp 模組  290 
+14.7.1  set_real_ip_from 指令  290 
+14.7.2  real_ip_header 指令  291 
+14.8  Http SSL 模組  291 
+14.8.1  在多個 server{……}虛擬主機中使用萬用字元 SSL 證
+書  294 
+14.8.2  ssl 指令  294 
+14.8.3  ssl_certificate 指令  294 
+14.8.4  ssl_certificate_key 指令  295 
+14.8.5  ssl_client_certificate 指令  295 
+14.8.6  ssl_dhparam 指令  295 
+14.8.7  ssl_ciphers 指令  295 
+14.8.8  ssl_crl 指令  296 
+14.8.9  ssl_prefer_server_ciphers 指令  296 
+14.8.10  ssl_protocols 指令  296 
+14.8.11  ssl_verify_client 指令  296 
+14.8.12  ssl_verify_depth 指令  296 
+14.8.13  ssl_session_cache 指令  297 
+14.8.14  ssl_session_timeout 指令  297 14.8.15  ssl_engine 指令  298 
+14.9  Http Stub Status 模組  298 
+14.9.1  stub_status 指令  299 
+14.10  Http Sub 模組  299 
+14.10.1  sub_filter 指令  300 
+14.10.2  sub_filter_once 指令  300 
+14.10.3  sub_filter_types 指令  300 
+14.11  Http Dav 模組  300 
+14.11.1  dav_access 指令  301 
+14.11.2  dav_methods 指令  301 
+14.11.3  create_full_put_path 指令  301 
+14.12  Google Perftools 模組  302 
+14.12.1  google_perftools_profiles 指令  302 
+14.13  Http XSLT 模組  302 
+14.13.1  xslt_entities 指令  303 
+14.13.2  xslt_stylesheet 指令  303 
+14.13.3  xslt_types 指令  304 
+14.14  Http Secure Link 模組  304 
+14.14.1  secure_link_secret 指令  304 
+14.14.2  $secure_link 變數  305 
+14.15  Http Image Filter 模組  306 
+14.15.1  image_filter  306 
+14.15.2  image_filter_buffer  306 
+14.15.3  image_filter_jpeg_quality  307 
+14.15.4  image_filter_transparency  307 
+第 15 章  Nginx 的郵件模組  301 
+15.1  Nginx 郵件核心模組  303 
+15.2  Nginx 郵件認證模組  307 
+15.3  Nginx 郵件代理模組  308 
+15.4  Nginx 郵件 SSL 模組  310 
+15.5  Nginx 郵件模組配置實例  312
+
+ 
