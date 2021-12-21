@@ -1,0 +1,1 @@
+ffmpeg -i videoplayback.mp4 -s 300x200 -b:v 500k -vcodec libx264 -r 29.97 -acodec libvo_aacenc -b:a 48k -ac 2 -ar 44100 -profile:v baseline -level 3.0 -f mp4 -y 00.mp4
