@@ -1,0 +1,14 @@
+整理了12個網絡工程師必備工具大匯總，拿走不謝！
+
+資料來源: https://mp.weixin.qq.com/s/6B9XZXFT-FG96ErzSDqyeQ
+
+EVE-NG
+Cisco Packet Tracer
+GNS3模擬器
+QuickPing
+科來網絡分析系統
+Wireshark
+BatchCmdGen
+Kiwi Syslog
+NetFlow
+snmp

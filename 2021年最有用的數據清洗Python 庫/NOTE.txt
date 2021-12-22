@@ -1,0 +1,22 @@
+2021年最有用的數據清洗Python 函數庫/函示庫
+
+資料來源: https://mp.weixin.qq.com/s/UpGbHft-Xx0c8AhZsmQXSQ
+
+
+本文就來分享精選的15 個最有用的Python 數據清理庫，希望在數據分析的路上，大家都能越快輕鬆！
+
+▲NumPy
+▲Pandas
+▲Matplotlib
+▲Datacleaner
+▲Dora
+▲Seaborn
+▲Arrow
+▲Scrubadub
+▲Tabulate
+▲Missingno
+▲Modin
+▲Ftfy
+▲SciPy
+▲Dabl
+▲Imblearn

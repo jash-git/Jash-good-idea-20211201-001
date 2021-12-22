@@ -1,0 +1,11 @@
+這幾招技術，病毒木馬經常用
+資料來源:https://mp.weixin.qq.com/s/csn26gVdNuc6BEQciMsVPA
+
+進程遍歷
+文件遍歷
+按鍵記錄
+後門
+桌面截屏
+文件監控
+自刪除
+U盤監控

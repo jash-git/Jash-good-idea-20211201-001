@@ -1,0 +1,4 @@
+這樣可以將Numpy加速700倍 [CuPy]
+
+資料來源: https://mp.weixin.qq.com/s/6iiiBpjuVSqFjn4c0eTntQ
+
