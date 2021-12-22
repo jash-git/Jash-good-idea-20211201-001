@@ -1,0 +1,25 @@
+誤入GitHub 遊戲區，結果意外地收穫頗豐
+資料來源: https://mp.weixin.qq.com/s/MlLpmE9pENlL9TU9GW-JBQ
+https://github.com/topics/game
+
+本期所有的遊戲均支持中文，可運行在Windows、Linux、macOS 等系統
+
+1、Wesnoth（韋諾之戰）
+    下載：https://www.wesnoth.org/
+    C++ 源碼：https://github.com/wesnoth/wesnoth
+
+2、Teeworlds
+    下載：https://www.teeworlds.com/
+    C++ 源碼：https://github.com/teeworlds/teeworlds
+
+3、Mindustry（像素工廠）
+    下載：https://mindustrygame.github.io/
+    Java 源碼：https://github.com/Anuken/Mindustry
+
+4、shapez.io（異形工廠）
+    在線試玩：https://shapez.io/
+    JS 源碼：https://github.com/tobspr/shapez.io
+
+5、Veloren
+    下載：https://veloren.net/download/
+    Rust 源碼：https://github.com/veloren/veloren

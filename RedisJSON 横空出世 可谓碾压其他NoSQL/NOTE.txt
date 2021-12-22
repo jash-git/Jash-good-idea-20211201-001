@@ -1,0 +1,2 @@
+[RedisJson（RedisSearch）]横空出世 可谓碾压其他NoSQL[MongoDB、ElasticSearch]
+資料來源: https://mp.weixin.qq.com/s/MFR-lb_NptI4uU8chz3s_Q
