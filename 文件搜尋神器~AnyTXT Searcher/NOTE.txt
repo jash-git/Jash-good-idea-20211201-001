@@ -1,0 +1,20 @@
+文件搜尋神器~AnyTXT Searcher
+資料來源:https://mp.weixin.qq.com/s/qvzqhzPSK6VAqKPJgoUPYg
+https://anytxt.net/
+
+
+Formats Supported
+
+Plain Text Format (txt, java, html, etc.)
+Microsoft Outlook (eml) (beta)
+Microsoft Word (doc, docx)
+Microsoft Excel (xls, xlsx)
+Microsoft PowerPoint (ppt, pptx)
+Portable Document Format (pdf)
+Microsoft OneNote (one)
+eBook Formats (mobi, epub, etc.)
+Microsoft Compiled HTML Help (chm)
+WPS Word Format (wps)
+WPS Excel Format (et)
+WPS PowerPoint Format (dps)
+More Document Types are coming
