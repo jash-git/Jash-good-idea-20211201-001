@@ -1,0 +1,67 @@
+簡單的Python 調用/呼叫 C/C++ 函示庫/函數庫
+
+資料來源: https://mp.weixin.qq.com/s/BeP-NaJ5-BiCEzyuvnv3ew
+
+01.純函數
+//编译命令 gcc -o libpycall.so -shared -fPIC called_c.c
+#include <stdio.h>
+int foo(int a, int b)
+{
+	<!-- -->
+	printf("a:%d, b:%d.", &amp;a, &amp;b);
+	return 0;
+}
+
+
+import ctypes
+dll = ctypes.cdll.LoadLibrary
+lib = dll('./libpycall.so') //刚刚生成的库文件的路径
+lib.foo(1, 3)
+
+02.類別
+//Python调用c++(类）动态链接库
+//g++ -o libpycallcpp.so -shared -fPIC cpp_called.cpp
+#include <iostream>
+using namespace std;
+ 
+class TestLib
+{
+	<!-- -->
+    public:
+        void display();
+        void display(int a);
+};
+
+void TestLib::display() 
+{
+	<!-- -->
+    cout&lt;&lt;"First display"&lt;&lt;endl;
+}
+ 
+void TestLib::display(int a) 
+{
+	<!-- -->
+    cout&lt;&lt;"Second display:"&lt;&lt;a&lt;&lt;endl;
+}
+extern "C"
+{
+	<!-- -->
+    TestLib obj;
+    void display()
+	{
+		<!-- -->
+        obj.display();
+    }
+    void display_int(int a) 
+	{
+		<!-- -->
+        obj.display(a);
+    }
+}
+
+
+import ctypes
+dll = ctypes.cdll.LoadLibrary
+lib = dll('./libpycallcpp.so') //刚刚生成的库文件的路径
+lib.display()
+lib.display_int(0)

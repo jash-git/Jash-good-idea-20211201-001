@@ -1,0 +1,11 @@
+又整新活，AI 殺麻了！
+
+Latent Diffusion [影像/圖像 模糊變清晰/移除干擾]
+GitHub: https://github.com/CompVis/latent-diffusion
+
+GLIDE [文字描述轉成 影像/圖像]
+GitHub: https://github.com/openai/glide-text2im
+
+JoJoGAN [大頭照卡通化]
+GitHub: https://github.com/mchong6/JoJoGAN
+https://huggingface.co/spaces/akhaliq/JoJoGAN

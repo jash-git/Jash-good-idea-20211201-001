@@ -1,0 +1,3 @@
+機器視覺外觀瑕疵檢測基礎[統計(平均)/K-mean 偵測]
+
+資料來源:https://mp.weixin.qq.com/s/7aADQwAi_PHmocUZwmJw5g
