@@ -1,0 +1,22 @@
+20 個最常用的Git 命令
+資料來源:https://mp.weixin.qq.com/s/iOAlmCsy2UFLCrMjEk9lNA
+
+git config [該命令將分別設定提交代碼的用戶名和電子郵件地址]
+git init [該命令可用於創建一個新的代碼庫]
+git clone [該命令可用於通過指定的URL獲取/下載/抓取 一個代碼庫]
+git add [該命令可以將一個文件添加至stage(暫存區)]
+git commit [該命令可以在版本歷史記錄中永久記錄文件]
+git diff [該命令可以顯示尚未添加到stage的文件的變更]
+git reset [該命令將從stage中撤出指定的文件，但可以保留文件的內容]
+git status [該命令將顯示所有需要提交的文件]
+git rm [該命令將刪除/移除工作目錄中的文件，並將刪除動作添加到stage]
+git log [該命令可用於顯示當前分支的版本歷史記錄]
+git show [該命令經顯示指定提交的元數據以及內容變更]
+git tag [該命令可以給指定的提交添加標籤]
+git branch [該命令將顯示當前代碼庫中所有的本地分支]
+git checkout [你可以通過該命令切換分支]
+git merge [該命令可以將指定分支的歷史記錄合併到當前分支]
+git remote [你可以通過該命令將本地的代碼庫連接到遠程服務器]
+git push [該命令可以將主分支上提交的變更發送到遠程代碼庫]
+git pull [該命令將獲取遠程服務器上的變更，並合併到你的工作目錄]
+git stash [該命令將臨時保存所有修改的文件]

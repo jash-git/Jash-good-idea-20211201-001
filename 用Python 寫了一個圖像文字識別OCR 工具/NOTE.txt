@@ -1,0 +1,2 @@
+用Python 寫了一個圖像文字識別OCR 工具
+資料來源:https://mp.weixin.qq.com/s/286cxGim8PjPfhg2Wb6-XQ
