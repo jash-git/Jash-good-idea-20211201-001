@@ -1,0 +1,74 @@
+騰訊十大最受歡迎的開源項目
+https://mp.weixin.qq.com/s/gNIiTckXBZTUxzmsEoUJvg
+
+文字重點摘要:
+    高性能通用key-value 組件 ~ https://github.com/Tencent/MMKV
+        MMKV 是基於mmap 內存映射的key-value 組件，底層序列化/反序列化使用protobuf 實現，性能高，穩定性強。從2015 年中至今在微信上使用，其性能和穩定性經過了時間的驗證。近期也已移植到Android / macOS / Win32 / POSIX 平台，一併開源。
+
+    APIJSON ~ https://github.com/Tencent/Mars
+        APIJSON 是一種專為API 而生的JSON 網絡傳輸協議以及基於這套協議實現的ORM 庫。
+
+    高性能神經網絡前向計算框架 ~ https://github.com/Tencent/ncnn
+        ncnn 是一個為手機端極致優化的高性能神經網絡前向計算框架。ncnn 從設計之初深刻考慮手機端的部署和使用。無第三方依賴，跨平台，手機端cpu 的速度快於目前所有已知的開源框架。基於ncnn，開發者能夠將深度學習算法輕鬆移植到手機端高效執行，開發出人工智能APP，將AI 帶到你的指尖。ncnn 目前已在騰訊多款應用中使用，如QQ，Qzone，微信，天天P圖等。
+
+    c/c++協程庫 ~ https://github.com/Tencent/libco
+        libco是微信後台大規模使用的c/c++協程庫，2013年至今穩定運行在微信後台的數万台機器上。
+
+        libco的特性
+            無需侵入業務邏輯，把多進程、多線程服務改造成協程服務，並發能力得到百倍提升;
+
+            支持CGI框架，輕鬆構建web服務(New);
+
+            支持gethostbyname、mysqlclient、ssl等常用第三庫(New);
+
+            可選的共享棧模式，單機輕鬆接入千萬連接(New);
+
+            完善簡潔的協程編程接口
+
+            類pthread接口設計，通過co_create、co_resume等簡單清晰接口即可完成協程的創建與恢復；
+
+            __thread的協程私有變量、協程間通信的協程信號量co_signal (New);
+
+            語言級別的lambda實現，結合協程原地編寫並執行後台異步任務(New);
+
+            基於epoll/kqueue實現的小而輕的網絡框架，基於時間輪盤實現的高性能定時器;
+
+    Android插件框架 ~ https://github.com/Tencent/Shadow
+        Shadow是一個騰訊自主研發的Android插件框架，經過線上億級用戶量檢驗。
+        
+    新生的跨端開發框架 ~ https://github.com/Tencent/Hippy
+        Hippy 是一個新生的跨端開發框架，目標是使開發者可以只寫一套代碼就直接運行於三個平台（iOS、Android 和Web）。Hippy 的設計是面向傳統Web 開發者的，特別是之前有過React Native 和Vue 的開發者用起來會更為順手，Hippy 致力於讓前端開發跨端App 更加容易。
+        
+    小程序支持組件化開發的框架 ~ https://github.com/Tencent/wepy
+        特性：
+            類Vue 開發風格
+
+            支持自定義組件開發
+
+            支持引入NPM 包
+
+            支持Promise
+
+            支持ES2015+ 特性，如Async Functions
+
+            支持多種編譯器，Less/Sass/Stylus/PostCSS、Babel/Typescript、Pug
+
+            支持多種插件處理，文件壓縮，圖片壓縮，內容替換等
+
+            支持Sourcemap，ESLint 等
+
+            小程序細節優化，如請求列隊，事件優化等    
+            
+    物聯網領域開發的實時操作系統 ~ https://github.com/Tencent/TencentOS-tiny
+        TencentOS tiny 主體架構圖，從下到上主要包括：
+            CPU 庫：TencentOS tiny 支持的CPU IP 核架構，當前主要支持ARM Cortex M0/3/4/7，Cortex A7，RISC-V、MSP430、AVR、STM8 等。
+
+            驅動管理層：包括板級支持包（BSP，主要由MCU 芯片廠家開發與維護）、硬件抽象層（HAL，主要由TencentOS tiny 提供，方便不同芯片的適配與移植）、設備驅動（Drivers，例如Wi-Fi、GPRS、LoRa 等模塊的驅動程序）。
+
+            內核：TencentOS tiny 實時內核包括任務管理、實時調度、時間管理、中斷管理、內存管理、異常處理、軟件定時器、鍊錶、消息隊列、信號量、互斥鎖、事件標誌等模塊。
+
+            IoT 協議棧：TencentOS tiny 提供lwip、AT Adapter、SAL 層，支持不同的網絡硬件，例如以太網、串口Wi-Fi、GPRS、NB-IoT、4G 等通信模塊。TCP/IP 網絡協議棧上提供常用的物聯網協議棧，例如CoAP、MQTT，支撐終端業務快速接入騰訊雲。
+
+            安全框架：TencentOS tiny 為了確保物聯網終端數據傳輸安全以及設備認證安全，提供了完整的安全解決方案。安全框架提供的DTLS 和TLS 安全協議，加固了COAP 及MQTT 的傳輸層，可確保物聯網終端在對接騰訊雲時實現安全認證和數據加密；另外針對低資源的終端硬件，安全框架還提供與騰訊雲IoTHub 配套的密鑰認證方案，確保資源受限設備也能在一定程度上實現設備安全認證。
+
+            組件框架：TencentOS tiny 提供文件系統、KV 存儲、自組網、JS 引擎、低功耗框架、設備框架、OTA、調試工具鍊等一系列組件，供用戶根據業務場景選用。        
